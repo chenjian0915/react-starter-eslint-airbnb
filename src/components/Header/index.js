@@ -38,6 +38,17 @@ const menu = (
 );
 
 class Header extends Component {
+	constructor() {
+		super();
+		this.state = {
+			collapsed: false
+		};
+	}
+
+	toggleCollapsed = () => {
+		this.setState(prevState => ({ collapsed: !prevState.collapsed }));
+	};
+
 	render() {
 		return (
 			<div className="header-wrapper">
@@ -45,7 +56,12 @@ class Header extends Component {
 					<Row className="" align="middle" justify="center">
 						<Col span={6} className="menu-fold-wrapper">
 							<Icon
-								type="menu-fold"
+								type={
+									this.state.collapsed
+										? 'menu-unfold'
+										: 'menu-fold'
+								}
+								onClick={this.toggleCollapsed}
 								style={{ fontSize: '20px', cursor: 'pointer' }}
 							/>
 						</Col>

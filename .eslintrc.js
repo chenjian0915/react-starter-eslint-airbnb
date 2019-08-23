@@ -6,7 +6,7 @@ module.exports = {
 		'prettier/prettier': 'error',
 		'react/jsx-indent-props': 0, //验证JSX中的props缩进
 		'no-const-assign': 2, //禁止修改const声明的变量
-		indent: ['error', 'tab'], //空格4个
+		indent: ['error', 'tab', { "SwitchCase": 1 }], //空格4个
 		'react/jsx-indent': 0,
 		'react/jsx-one-expression-per-line': 'off', // 关闭要求一个表达式必须换行的要求，和Prettier冲突了
 		// 'react/jsx-wrap-multilines': {
