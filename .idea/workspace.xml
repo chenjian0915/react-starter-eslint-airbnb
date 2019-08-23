@@ -2,39 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6360c3d3-86d4-4be3-9d9b-25ccfcc478a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-overrides.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/App/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Home/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Home/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/session.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/JwtHelper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/history.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MenuList/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MenuList/menuList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Student/list/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/precache-manifest.deca70bf640904b2be3be1781f53ee5d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/css/main.b8cb500e.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/css/main.b8cb500e.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/2.2526051c.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/2.2526051c.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/main.60f0a040.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/main.60f0a040.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/runtime~main.077bb605.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/static/js/runtime~main.077bb605.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="react-starter-eslint-airbnb" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">

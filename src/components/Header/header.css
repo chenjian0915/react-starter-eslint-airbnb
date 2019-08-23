@@ -1,0 +1,15 @@
+.header-wrapper {
+    text-align: right;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+.header-wrapper .ant-page-header-content {
+    padding-top: 0;
+}
+.header-wrapper .menu-fold-wrapper {
+    padding-top: 7px;
+    text-align: left;
+}
+.header-wrapper .user-info-dropdown {
+    cursor: pointer;
+    font-size: 16px;
+}

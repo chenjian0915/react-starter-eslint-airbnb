@@ -1,0 +1,38 @@
+.menu-list {
+    width: 256px;
+    height: 100%;
+    text-align: left;
+    box-shadow: 2px 0 6px rgba(0,21,41,.35);
+}
+.menu-list .ant-menu {
+    height: 100%;
+    overflow: hidden;
+}
+.menu-list .ant-menu.ant-menu-dark .ant-menu-item-selected {
+    background-color: #1890ff;
+}
+
+.menu-list .ant-pro-sider-menu-logo {
+    position: relative;
+    height: 64px;
+    padding-left: 24px;
+    overflow: hidden;
+    line-height: 64px;
+    background: #001529;
+    transition: all .3s;
+}
+.menu-list .ant-pro-sider-menu-logo img {
+    display: inline-block;
+    height: 32px;
+    vertical-align: middle;
+}
+.menu-list .ant-pro-sider-menu-logo h1 {
+    display: inline-block;
+    margin: 0 0 0 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+}
+

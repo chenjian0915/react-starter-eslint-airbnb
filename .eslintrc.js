@@ -14,7 +14,10 @@ module.exports = {
 		// },
 		'react/self-closing-comp': 2,
 		'react/no-is-mounted': 2,
-		'no-var': 2
+		'no-var': 2,
+		'react/destructuring-assignment': 0,
+		'react/prefer-stateless-function': 0,
+		'react/jsx-wrap-multilines': 0
 	},
 	plugins: ['prettier']
 	// overrides: [
