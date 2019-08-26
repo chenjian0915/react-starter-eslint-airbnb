@@ -1,12 +1,12 @@
-import axios from 'axios';
-import config from '../shared/config';
+// import axios from 'axios';
+// import config from '../shared/config';
 import history from '../shared/history';
 
 class SessionService {
-	login = credentials => {
-		// const url = `${config.api.url_prefix}/login`;
-		// return axios.post(url, credentials);
-	};
+	// login = credentials => {
+	// 	// const url = `${config.api.url_prefix}/login`;
+	// 	// return axios.post(url, credentials);
+	// };
 
 	logout = () => {
 		if (sessionStorage.getItem('admin_user') != null) {
@@ -17,7 +17,7 @@ class SessionService {
 	};
 
 	getUser = () => {
-		return !!sessionStorage.getItem('admin_user')
+		return sessionStorage.getItem('admin_user')
 			? JSON.parse(sessionStorage.getItem('admin_user'))
 			: null;
 	};

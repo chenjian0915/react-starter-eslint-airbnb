@@ -4,7 +4,7 @@ import config from 'shared/config';
 
 class HttpClient {
 	constructor() {
-		httpClient = axios.create({
+		const httpClient = axios.create({
 			baseURL: config.api.url_prefix
 		});
 
@@ -13,7 +13,7 @@ class HttpClient {
 				const user = sessionService.getUser();
 				const token = user ? user.token : null;
 				if (token) {
-					config.headers['Authorization'] = 'Bearer ' + token;
+					config.headers.Authorization = `Bearer ${token}`;
 				} else {
 					sessionService.logout();
 				}
@@ -24,7 +24,7 @@ class HttpClient {
 
 		httpClient.interceptors.response.use(
 			res => {
-				let token = res.headers['authorization'].split(' ')[1];
+				const token = res.headers.authorization.split(' ')[1];
 				sessionService.updateToken(token);
 
 				return res;
@@ -102,10 +102,10 @@ class HttpClient {
 	}
 
 	prepareParams(params) {
-		let newParams = {};
+		const newParams = {};
 
 		if (params) {
-			for (let key in params) {
+			for (const key in params) {
 				// GET 请求的一些优化，空的默认的都不传
 				if (params[key] === '' || params[key] === null) {
 					continue;

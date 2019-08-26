@@ -2,15 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6360c3d3-86d4-4be3-9d9b-25ccfcc478a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/actionCreator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/actionType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/modules/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/PrivateLayout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/PrivateLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/PublicLayout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/PublicLayout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Header/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/MenuList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuList/menuList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/MenuList/menuList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/modules/actionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/actionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/modules/actionType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/actionType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/modules/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/session.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/session.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -43,7 +53,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/project/react-starter-kit" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -61,13 +72,16 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\qjy\react-starter-eslint-airbnb\src\redux" />
-      <recent name="D:\qjy\react-starter-eslint-airbnb\src\redux\modules" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\qjy\react-starter-eslint-airbnb" />
       <recent name="D:\qjy\react-starter-eslint-airbnb\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\qjy\react-starter-eslint-airbnb\src\components\Layouts" />
+      <recent name="D:\qjy\react-starter-eslint-airbnb\src\components" />
+      <recent name="D:\qjy\react-starter-eslint-airbnb\src\components\Home" />
+      <recent name="D:\qjy\react-starter-eslint-airbnb\src\redux" />
+      <recent name="D:\qjy\react-starter-eslint-airbnb\src\redux\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -100,7 +114,10 @@
       <workItem from="1566367744530" duration="8604000" />
       <workItem from="1566376987992" duration="68000" />
       <workItem from="1566435433314" duration="2952000" />
-      <workItem from="1566549333157" duration="5074000" />
+      <workItem from="1566549333157" duration="5744000" />
+      <workItem from="1566780715699" duration="5570000" />
+      <workItem from="1566796931079" duration="810000" />
+      <workItem from="1566797904098" duration="13471000" />
     </task>
     <servers />
   </component>

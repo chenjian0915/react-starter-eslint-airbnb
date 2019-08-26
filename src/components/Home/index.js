@@ -8,10 +8,9 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
-	handleClick = () => {
-		console.log('hello');
-	};
 	render() {
-		return <div></div>;
+		return <div>Home</div>;
 	}
 }
+
+export default Home;

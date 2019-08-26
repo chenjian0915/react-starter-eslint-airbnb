@@ -1,7 +1,8 @@
-import { CHANGE_COLLAPSED } from './actionType';
+import { CHANGE_COLLAPSED, USER_LOGIN_STATUS } from './actionType';
 
 const defaultCommonState = {
-	collapsed: false
+	collapsed: false,
+	loginStatus: true
 };
 
 const common = (state = defaultCommonState, action) => {
@@ -11,10 +12,10 @@ const common = (state = defaultCommonState, action) => {
 				...state,
 				collapsed: action.status
 			};
-		case 'COLLAPSED1':
+		case USER_LOGIN_STATUS:
 			return {
 				...state,
-				collapsed: action.collapsed
+				loginStatus: action.status
 			};
 		default:
 			return state;

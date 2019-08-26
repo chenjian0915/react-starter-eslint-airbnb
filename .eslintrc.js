@@ -17,15 +17,8 @@ module.exports = {
 		'no-var': 2,
 		'react/destructuring-assignment': 0,
 		'react/prefer-stateless-function': 0,
-		'react/jsx-wrap-multilines': 0
+		'react/jsx-wrap-multilines': 0,
+		'react/jsx-curly-newline': 0
 	},
 	plugins: ['prettier']
-	// overrides: [
-	//   {
-	//     files: ["**/Mi/*.js", "**/Mi/*.jsx"],
-	//     rules: {
-	//       "react/prop-types": "error", // Mi 文件夹下的是系统组件，必须写prop-types
-	//     },
-	//   },
-	// ],
 };
