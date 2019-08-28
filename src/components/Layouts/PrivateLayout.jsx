@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Layout } from 'antd';
 import HeaderDetail from './Header';
@@ -8,12 +9,22 @@ import MenuList from './MenuList';
 import './PrivateLayout.css';
 
 import SessionService from '../../services/session.service';
+import { changeCollapsedAction } from '../../redux/modules/actionCreator';
 
 const { Header, Sider, Content } = Layout;
 
-export default class PrivateLayout extends React.Component {
+class PrivateLayout extends React.Component {
+	// eslint-disable-next-line constructor-super
+	constructor() {
+		super();
+		this.onBreakpoint = this.onBreakpoint.bind(this);
+	}
+
+	onBreakpoint(broken) {
+		this.props.changeCollapsed(!broken);
+	}
+
 	render() {
-		console.log(this.props);
 		const { component: Component, ...rest } = this.props;
 
 		return (
@@ -23,10 +34,14 @@ export default class PrivateLayout extends React.Component {
 					SessionService.isAuthenticated() ? (
 						<Layout>
 							<Sider
+								collapsible
+								collapsed={this.props.collapsed}
 								style={{
 									height: '100vh'
 								}}
-								width="256"
+								breakpoint="lg"
+								onBreakpoint={this.onBreakpoint}
+								width={256}
 							>
 								<MenuList />
 							</Sider>
@@ -48,3 +63,22 @@ export default class PrivateLayout extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		collapsed: state.common.collapsed
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		changeCollapsed: status => {
+			dispatch(changeCollapsedAction(!status));
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(PrivateLayout);

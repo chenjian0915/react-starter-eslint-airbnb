@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { PageHeader, Row, Col, Icon, Menu, Dropdown, Avatar } from 'antd';
+import { changeCollapsedAction } from '../../../redux/modules/actionCreator';
 import './header.css';
 
 const menu = (
@@ -38,34 +40,32 @@ const menu = (
 );
 
 class Header extends Component {
-	constructor() {
-		super();
-		this.state = {
-			collapsed: false
-		};
+	constructor(props) {
+		super(props);
+		this.changeCollapsed = this.changeCollapsed.bind(this);
 	}
 
-	toggleCollapsed = () => {
-		this.setState(prevState => ({ collapsed: !prevState.collapsed }));
-	};
+	changeCollapsed() {
+		this.props.changeCollapsed(this.props.collapsed);
+	}
 
 	render() {
 		return (
 			<div className="header-wrapper">
 				<PageHeader>
 					<Row className="" align="middle" justify="center">
-						<Col span={6} className="menu-fold-wrapper">
+						<Col span={12} className="menu-fold-wrapper">
 							<Icon
 								type={
-									this.state.collapsed
+									this.props.collapsed
 										? 'menu-unfold'
 										: 'menu-fold'
 								}
-								onClick={this.toggleCollapsed}
+								onClick={this.changeCollapsed}
 								style={{ fontSize: '20px', cursor: 'pointer' }}
 							/>
 						</Col>
-						<Col span={6} push={12}>
+						<Col span={12}>
 							<Dropdown
 								className="user-info-dropdown"
 								overlay={menu}
@@ -84,4 +84,21 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+const mapStateToProps = state => {
+	return {
+		collapsed: state.common.collapsed
+	};
+};
+const mapDispatchToProps = dispatch => {
+	return {
+		changeCollapsed: status => {
+			console.log('changeCollapsed', status);
+			dispatch(changeCollapsedAction(!status));
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header);

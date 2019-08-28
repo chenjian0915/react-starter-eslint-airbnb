@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
+import { connect } from 'react-redux';
 import './menuList.css';
 
 const { SubMenu } = Menu;
 
 class MenuList extends Component {
-	constructor() {
-		super();
-		this.state = {
-			collapsed: false
-		};
-	}
-
 	render() {
 		return (
 			<div className="menu-list">
@@ -29,7 +23,6 @@ class MenuList extends Component {
 					defaultOpenKeys={['sub1']}
 					mode="inline"
 					theme="dark"
-					inlineCollapsed={this.state.collapsed}
 				>
 					<Menu.Item key="1">
 						<Icon type="google" />
@@ -79,4 +72,13 @@ class MenuList extends Component {
 	}
 }
 
-export default MenuList;
+const mapStateToProps = state => {
+	return {
+		collapsed: state.common.collapsed
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	null
+)(MenuList);
