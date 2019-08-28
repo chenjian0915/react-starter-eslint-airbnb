@@ -13,10 +13,12 @@ const { Header, Sider, Content } = Layout;
 
 export default class PrivateLayout extends React.Component {
 	render() {
-		const { component: Component } = this.props;
+		console.log(this.props);
+		const { component: Component, ...rest } = this.props;
 
 		return (
 			<Route
+				{...rest}
 				render={props =>
 					SessionService.isAuthenticated() ? (
 						<Layout>

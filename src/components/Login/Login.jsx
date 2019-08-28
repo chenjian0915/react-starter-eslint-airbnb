@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import { Form, Input, Button, Icon } from 'antd';
 import sessionService from '../../services/session.service';
-// import * as sessionActions from '../../store/actions/session.actions';
+import * as sessionActions from './store/actionCreator';
 
 import './Login.css';
 
@@ -24,7 +24,7 @@ class Login extends React.Component {
 	}
 
 	componentDidMount() {
-		// this.props.logout();
+		this.props.logout();
 	}
 
 	onChange = event => {
@@ -96,21 +96,21 @@ class Login extends React.Component {
 	}
 }
 
-// const mapStateToProps = state => {
-// 	return {
-// 		logining: state.session.logining,
-// 		error: state.session.error
-// 	};
-// };
+const mapStateToProps = state => {
+	return {
+		logining: state.session.logining,
+		error: state.session.error
+	};
+};
 
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		onLogin: credentials => dispatch(sessionActions.login(credentials)),
-// 		logout: () => dispatch(sessionActions.logout())
-// 	};
-// };
+const mapDispatchToProps = dispatch => {
+	return {
+		onLogin: credentials => dispatch(sessionActions.login(credentials)),
+		logout: () => dispatch(sessionActions.logout())
+	};
+};
 
 export default connect(
-	null,
-	null
+	mapStateToProps,
+	mapDispatchToProps
 )(Login);

@@ -18,7 +18,8 @@ module.exports = {
 		'react/destructuring-assignment': 0,
 		'react/prefer-stateless-function': 0,
 		'react/jsx-wrap-multilines': 0,
-		'react/jsx-curly-newline': 0
+		'react/jsx-curly-newline': 0,
+		'react/jsx-props-no-spreading': 1
 	},
 	plugins: ['prettier']
 };

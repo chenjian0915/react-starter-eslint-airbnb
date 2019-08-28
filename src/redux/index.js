@@ -6,15 +6,13 @@
  * @LastEditors: Please set LastEditors
  */
 import { combineReducers } from 'redux';
-import home from './modules/home';
-import app from './modules/app';
 import common from './modules/common';
+import sessionReducer from '../components/Login/store';
 
 // 合并reducer
 const rootReducer = combineReducers({
-	app,
-	home,
-	common
+	common,
+	session: sessionReducer
 });
 
 export default rootReducer;
