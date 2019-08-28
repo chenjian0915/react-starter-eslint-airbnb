@@ -1,37 +1,37 @@
+import history from '../../../shared/history';
 import {
-    LOGIN_REQUEST,
-    LOGIN_FAILURE,
-    LOGIN_SUCCESS,
-    LOGOUT
-} from './types';
-import sessionService from '../../services/session.service';
-import history from '../../shared/history';
+	LOGIN_REQUEST,
+	LOGIN_FAILURE,
+	LOGIN_SUCCESS,
+	LOGOUT
+} from './actionTypes';
+import sessionService from '../../../services/session.service';
 
 export const loginRequest = () => {
-    return {
-        type: LOGIN_REQUEST
-    };
+	return {
+		type: LOGIN_REQUEST
+	};
 };
 
 export const loginSuccess = userData => {
-    return {
-        type: LOGIN_SUCCESS,
-        userData: userData
-     };
+	return {
+		type: LOGIN_SUCCESS,
+		userData
+	};
 };
 
 export const loginFail = error => {
-    return {
-        type: LOGIN_FAILURE,
-        error: error
-    };
+	return {
+		type: LOGIN_FAILURE,
+		error
+	};
 };
 
 export const login = credentials => {
-    return dispatch => {
-        dispatch(loginRequest());
-
-        /* Comment out for testing
+	return dispatch => {
+		dispatch(loginRequest());
+		console.log(credentials);
+		/* Comment out for testing
         sessionService.login(credentials)
             .then(
                 response => {
@@ -63,24 +63,25 @@ export const login = credentials => {
             .catch( error => dispatch(loginFail(error)) );
         */
 
-        // test user infomation
-        let userInfo = {
-            id: '1',
-            name: 'admintest',
-            token: 'tokentest'
-        };
-        
-        sessionStorage.removeItem('admin_user');
-        sessionStorage.setItem('admin_user', JSON.stringify(userInfo));
+		// test user infomation
+		const userInfo = {
+			id: '1',
+			name: 'admintest',
+			token: 'tokentest'
+		};
 
-        console.log(userInfo);
-        dispatch(loginSuccess(userInfo));
+		sessionStorage.removeItem('admin_user');
+		sessionStorage.setItem('admin_user', JSON.stringify(userInfo));
 
-        history.push('/');
-    };
+		dispatch(loginSuccess(userInfo));
+
+		history.push('/');
+		// eslint-disable-next-line no-restricted-globals
+		// location.href = '/';
+	};
 };
 
 export const logout = () => {
-    sessionService.logout();
-    return { type: LOGOUT };
+	sessionService.logout();
+	return { type: LOGOUT };
 };
