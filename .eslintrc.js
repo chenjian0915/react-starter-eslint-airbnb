@@ -19,7 +19,8 @@ module.exports = {
 		'react/prefer-stateless-function': 0,
 		'react/jsx-wrap-multilines': 0,
 		'react/jsx-curly-newline': 0,
-		'react/jsx-props-no-spreading': 1
+		'react/jsx-props-no-spreading': 1,
+		'no-unused-vars': 1
 	},
 	plugins: ['prettier']
 };

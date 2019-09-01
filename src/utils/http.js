@@ -1,23 +1,27 @@
-import React from 'react';
 import axios from 'axios';
-import config from 'shared/config';
+import config from '../shared/config';
+import history from '../shared/history';
+import serverList from '../services/serverList';
+import sessionService from '../services/session.service';
+
+console.log('serverList', serverList);
 
 class HttpClient {
 	constructor() {
 		const httpClient = axios.create({
 			baseURL: config.api.url_prefix
 		});
-
+		const configCopy = { ...config };
 		httpClient.interceptors.request.use(
-			config => {
+			configCopy => {
 				const user = sessionService.getUser();
 				const token = user ? user.token : null;
 				if (token) {
-					config.headers.Authorization = `Bearer ${token}`;
+					configCopy.headers.Authorization = `Bearer ${token}`;
 				} else {
 					sessionService.logout();
 				}
-				return config;
+				return configCopy;
 			},
 			error => Promise.reject(error)
 		);
@@ -47,7 +51,7 @@ class HttpClient {
 	// GET
 	get(url, params) {
 		this.httpClient
-			.get(url, { params: this.prepareParams(params) })
+			.get(url, {params: this.prepareParams(params)})
 			.then(this.onSuccess)
 			.catch(this.onError);
 	}
