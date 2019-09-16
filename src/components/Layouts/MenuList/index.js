@@ -1,11 +1,62 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import menuList from '../../../router/menuList';
 import './menuList.css';
 
 const { SubMenu } = Menu;
 
 class MenuList extends Component {
+	constructor() {
+		super()
+		this.state = {
+			selectedKeys: ['主页']
+		};
+		this.openKeysChange = this.openKeysChange.bind(this);
+	}
+
+	openKeysChange({ item, key, keyPath, selectedKeys, domEvent }) {
+		this.setState({
+			selectedKeys
+		});
+	}
+
+	// eslint-disable-next-line class-methods-use-this
+	renderList() {
+		return menuList.map((item, key) => {
+			if (item.type === 'Item') {
+				return (
+					<Menu.Item key={item.title}>
+						<Link to={item.url}>
+							<Icon type="google" />
+							<span>{item.title}</span>
+						</Link>
+					</Menu.Item>
+				);
+			}
+			return (
+				<SubMenu
+					key={item.title}
+					title={
+						<span>
+							<Icon type="google" />
+							<span>{item.title}</span>
+						</span>
+					}
+				>
+					{item.childList.map(childItem => {
+						return (
+							<Menu.Item key={childItem.title}>
+								<Link to={childItem.url}>{childItem.title}</Link>
+							</Menu.Item>
+						);
+					})}
+				</SubMenu>
+			);
+		});
+	}
+
 	render() {
 		return (
 			<div className="menu-list">
@@ -23,49 +74,10 @@ class MenuList extends Component {
 					defaultOpenKeys={['sub1']}
 					mode="inline"
 					theme="dark"
+					selectedKeys={this.state.selectedKeys}
+					onSelect={this.openKeysChange}
 				>
-					<Menu.Item key="1">
-						<Icon type="google" />
-						<span>Option 1</span>
-					</Menu.Item>
-					<Menu.Item key="2">
-						<Icon type="google" />
-						<span>Option 2</span>
-					</Menu.Item>
-					<Menu.Item key="3">
-						<Icon type="google" />
-						<span>Option 3</span>
-					</Menu.Item>
-					<SubMenu
-						key="sub1"
-						title={
-							<span>
-								<Icon type="google" />
-								<span>Navigation One</span>
-							</span>
-						}
-					>
-						<Menu.Item key="5">Option 5</Menu.Item>
-						<Menu.Item key="6">Option 6</Menu.Item>
-						<Menu.Item key="7">Option 7</Menu.Item>
-						<Menu.Item key="8">Option 8</Menu.Item>
-					</SubMenu>
-					<SubMenu
-						key="sub2"
-						title={
-							<span>
-								<Icon type="google" />
-								<span>Navigation Two</span>
-							</span>
-						}
-					>
-						<Menu.Item key="9">Option 9</Menu.Item>
-						<Menu.Item key="10">Option 10</Menu.Item>
-						<SubMenu key="sub3" title="Submenu">
-							<Menu.Item key="11">Option 11</Menu.Item>
-							<Menu.Item key="12">Option 12</Menu.Item>
-						</SubMenu>
-					</SubMenu>
+					{this.renderList()}
 				</Menu>
 			</div>
 		);

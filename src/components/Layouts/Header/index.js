@@ -92,7 +92,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		changeCollapsed: status => {
-			console.log('changeCollapsed', status);
 			dispatch(changeCollapsedAction(!status));
 		}
 	};
