@@ -17,9 +17,9 @@ module.exports = {
 		'no-var': 2,
 		'react/destructuring-assignment': 0,
 		'react/prefer-stateless-function': 0,
-		'react/jsx-wrap-multilines': 0,
-		'react/jsx-curly-newline': 0,
-		'react/jsx-props-no-spreading': 1,
+		'react/jsx-wrap-multilines': 0, // 关闭多行jsx需要加括号，react会给出错误提示
+		'react/jsx-curly-newline': 0, // 关闭在JSX属性和表达式中强制或禁止大括号内的换行符
+		'react/jsx-props-no-spreading': 1, // 将jsx props 传递提示类型设为警告
 		'no-unused-vars': 1
 	},
 	plugins: ['prettier']
