@@ -11,12 +11,41 @@ class MenuList extends Component {
 	constructor() {
 		super()
 		this.state = {
-			selectedKeys: ['主页']
+			selectedKeys: ['主页'],
+			openKeys: []
 		};
 		this.openKeysChange = this.openKeysChange.bind(this);
+		this.selectKeysChange = this.selectKeysChange.bind(this);
 	}
 
-	openKeysChange({ item, key, keyPath, selectedKeys, domEvent }) {
+	componentDidMount() {
+		const { pathname } = window.location;
+		let { selectedKeys, openKeys } = this.state;
+		menuList.forEach((value, key) => {
+			if (value.type === 'Item' && value.url === pathname) {
+				selectedKeys = [value.title];
+			} else if (value.type === 'SubMenu') {
+				value.childList.forEach(childValue => {
+					if (childValue.url === pathname) {
+						selectedKeys = [childValue.title];
+						openKeys = [value.title];
+					}
+				});
+			}
+		});
+		this.setState({
+			selectedKeys,
+			openKeys
+		});
+	}
+
+	openKeysChange(openKeys) {
+		this.setState({
+			openKeys
+		});
+	}
+
+	selectKeysChange({ selectedKeys }) {
 		this.setState({
 			selectedKeys
 		});
@@ -29,7 +58,7 @@ class MenuList extends Component {
 				return (
 					<Menu.Item key={item.title}>
 						<Link to={item.url}>
-							<Icon type="google" />
+							<Icon type={item.Icon} />
 							<span>{item.title}</span>
 						</Link>
 					</Menu.Item>
@@ -40,7 +69,7 @@ class MenuList extends Component {
 					key={item.title}
 					title={
 						<span>
-							<Icon type="google" />
+							<Icon type={item.Icon} />
 							<span>{item.title}</span>
 						</span>
 					}
@@ -48,7 +77,9 @@ class MenuList extends Component {
 					{item.childList.map(childItem => {
 						return (
 							<Menu.Item key={childItem.title}>
-								<Link to={childItem.url}>{childItem.title}</Link>
+								<Link to={childItem.url}>
+									{childItem.title}
+								</Link>
 							</Menu.Item>
 						);
 					})}
@@ -75,7 +106,9 @@ class MenuList extends Component {
 					mode="inline"
 					theme="dark"
 					selectedKeys={this.state.selectedKeys}
-					onSelect={this.openKeysChange}
+					openKeys={this.state.openKeys}
+					onOpenChange={this.openKeysChange}
+					onSelect={this.selectKeysChange}
 				>
 					{this.renderList()}
 				</Menu>

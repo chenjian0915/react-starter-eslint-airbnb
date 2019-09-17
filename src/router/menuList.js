@@ -1,13 +1,13 @@
 const menuList = [
 	{
 		type: 'Item',
-		Icon: 'google',
+		Icon: 'home',
 		title: '主页',
 		url: '/'
 	},
 	{
 		type: 'SubMenu',
-		Icon: 'google',
+		Icon: 'folder',
 		title: '资源管理',
 		childList: [
 			{
@@ -32,7 +32,7 @@ const menuList = [
 	},
 	{
 		type: 'SubMenu',
-		Icon: 'google',
+		Icon: 'idcard',
 		title: '用户管理',
 		childList: [
 			{
@@ -51,7 +51,7 @@ const menuList = [
 	},
 	{
 		type: 'SubMenu',
-		Icon: 'google',
+		Icon: 'gold',
 		title: '机构管理',
 		childList: [
 			{
@@ -70,7 +70,7 @@ const menuList = [
 	},
 	{
 		type: 'SubMenu',
-		Icon: 'google',
+		Icon: 'cluster',
 		title: '代理管理',
 		childList: [
 			{
@@ -83,7 +83,7 @@ const menuList = [
 	},
 	{
 		type: 'SubMenu',
-		Icon: 'google',
+		Icon: 'setting',
 		title: '系统管理',
 		childList: [
 			{
