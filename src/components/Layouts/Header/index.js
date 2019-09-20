@@ -63,6 +63,7 @@ class Header extends Component {
 					});
 				}
 			});
+
 		}
 		this.props.changeCollapsed(this.props.collapsed);
 	}
