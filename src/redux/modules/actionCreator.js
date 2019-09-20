@@ -1,4 +1,8 @@
-import { CHANGE_COLLAPSED, USER_LOGIN_STATUS } from './actionType';
+import {
+	CHANGE_COLLAPSED,
+	USER_LOGIN_STATUS,
+	CHANGE_OPEN_KEYS
+} from './actionType';
 
 export const changeCollapsedAction = status => ({
 	type: CHANGE_COLLAPSED,
@@ -8,4 +12,8 @@ export const changeCollapsedAction = status => ({
 export const changeLoginStatus = status => ({
 	type: USER_LOGIN_STATUS,
 	status
+});
+export const changeOpenKeys = data => ({
+	type: CHANGE_OPEN_KEYS,
+	data
 });

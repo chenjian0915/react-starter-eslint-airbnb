@@ -42,7 +42,7 @@ class Login extends React.Component {
 
 	render() {
 		return sessionService.isAuthenticated() ? (
-			<Redirect to="/" />
+			<Redirect to="/" from="/login" />
 		) : (
 			<div className="login-form-box">
 				<Form className="login-form" onSubmit={this.onSubmit}>

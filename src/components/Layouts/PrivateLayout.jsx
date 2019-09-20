@@ -10,12 +10,7 @@ const PrivateLayout = ({ component: Component, ...rest }) => (
 			SessionService.isAuthenticated() ? (
 				<Component {...props} />
 			) : (
-				<Redirect
-					to={{
-						pathname: '/login',
-						state: { from: props.location }
-					}}
-				/>
+				<Redirect to="/login" from="/" />
 			)
 		}
 	/>

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PageHeader, Row, Col, Icon, Menu, Dropdown, Avatar } from 'antd';
-import { changeCollapsedAction } from '../../../redux/modules/actionCreator';
+import {
+	changeCollapsedAction,
+	changeOpenKeys
+} from '../../../redux/modules/actionCreator';
+import menuList from '../../../router/menuList';
 import './header.css';
 
 const menu = (
@@ -46,6 +50,20 @@ class Header extends Component {
 	}
 
 	changeCollapsed() {
+		if (!this.props.collapsed) {
+			this.props.changeOpenKeys([]);
+		} else {
+			const { pathname } = window.location;
+			menuList.forEach((value, key) => {
+				if (value.type === 'SubMenu') {
+					value.childList.forEach(childValue => {
+						if (childValue.url === pathname) {
+							this.props.changeOpenKeys([value.title]);
+						}
+					});
+				}
+			});
+		}
 		this.props.changeCollapsed(this.props.collapsed);
 	}
 
@@ -93,6 +111,9 @@ const mapDispatchToProps = dispatch => {
 	return {
 		changeCollapsed: status => {
 			dispatch(changeCollapsedAction(!status));
+		},
+		changeOpenKeys: data => {
+			dispatch(changeOpenKeys(data));
 		}
 	};
 };

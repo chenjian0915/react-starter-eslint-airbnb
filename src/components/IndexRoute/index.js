@@ -7,13 +7,24 @@ import { Layout } from 'antd';
 import HeaderDetail from '../Layouts/Header';
 import MenuList from '../Layouts/MenuList';
 import '../../mock/todolist';
-import { changeCollapsedAction } from '../../redux/modules/actionCreator';
+import {changeCollapsedAction, changeOpenKeys} from '../../redux/modules/actionCreator';
 import ContentMain from './ContentMain';
 import './style.css';
 
 const { Header, Sider, Content } = Layout;
 
 class IndexRoute extends Component {
+
+	constructor() {
+		super();
+		this.onBreakpoint = this.onBreakpoint.bind(this);
+	}
+
+	onBreakpoint(broken) {
+		console.log(broken)
+		this.props.changeCollapsed(!broken);
+	}
+
 	render() {
 		return (
 			<Layout>

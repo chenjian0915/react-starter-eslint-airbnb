@@ -102,8 +102,6 @@ class ContentMain extends React.Component {
 						path="/agent"
 						component={AgentManagement}
 					/>
-
-					<Redirect exact from="/" to="/" />
 				</Switch>
 			</div>
 		);

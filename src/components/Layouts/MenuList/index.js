@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { changeOpenKeys } from '../../../redux/modules/actionCreator';
 import menuList from '../../../router/menuList';
 import './menuList.css';
 
@@ -12,15 +13,18 @@ class MenuList extends Component {
 		super()
 		this.state = {
 			selectedKeys: ['主页'],
-			openKeys: []
 		};
 		this.openKeysChange = this.openKeysChange.bind(this);
 		this.selectKeysChange = this.selectKeysChange.bind(this);
 	}
 
 	componentDidMount() {
+		this.menuStatus();
+	}
+
+	menuStatus() {
 		const { pathname } = window.location;
-		let { selectedKeys, openKeys } = this.state;
+		let { selectedKeys } = this.state;
 		menuList.forEach((value, key) => {
 			if (value.type === 'Item' && value.url === pathname) {
 				selectedKeys = [value.title];
@@ -28,21 +32,18 @@ class MenuList extends Component {
 				value.childList.forEach(childValue => {
 					if (childValue.url === pathname) {
 						selectedKeys = [childValue.title];
-						openKeys = [value.title];
+						this.props.changeOpenKeys([value.title]);
 					}
 				});
 			}
 		});
 		this.setState({
-			selectedKeys,
-			openKeys
+			selectedKeys
 		});
 	}
 
 	openKeysChange(openKeys) {
-		this.setState({
-			openKeys
-		});
+		this.props.changeOpenKeys(openKeys);
 	}
 
 	selectKeysChange({ selectedKeys }) {
@@ -101,12 +102,10 @@ class MenuList extends Component {
 					</a>
 				</div>
 				<Menu
-					defaultSelectedKeys={['1']}
-					defaultOpenKeys={['sub1']}
 					mode="inline"
 					theme="dark"
 					selectedKeys={this.state.selectedKeys}
-					openKeys={this.state.openKeys}
+					openKeys={this.props.openKeys}
 					onOpenChange={this.openKeysChange}
 					onSelect={this.selectKeysChange}
 				>
@@ -119,11 +118,20 @@ class MenuList extends Component {
 
 const mapStateToProps = state => {
 	return {
-		collapsed: state.common.collapsed
+		collapsed: state.common.collapsed,
+		openKeys: state.common.openKeys
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+	return {
+		changeOpenKeys: data => {
+			dispatch(changeOpenKeys(data));
+		}
+	};
+}
+
 export default connect(
 	mapStateToProps,
-	null
+	mapDispatchToProps
 )(MenuList);
