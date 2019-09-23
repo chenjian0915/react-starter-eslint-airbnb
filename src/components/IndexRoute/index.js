@@ -7,21 +7,37 @@ import { Layout } from 'antd';
 import HeaderDetail from '../Layouts/Header';
 import MenuList from '../Layouts/MenuList';
 import '../../mock/todolist';
-import {changeCollapsedAction, changeOpenKeys} from '../../redux/modules/actionCreator';
+import {
+	changeCollapsedAction,
+	changeOpenKeys
+} from '../../redux/modules/actionCreator';
 import ContentMain from './ContentMain';
 import './style.css';
+import menuList from '../../router/menuList';
 
 const { Header, Sider, Content } = Layout;
 
 class IndexRoute extends Component {
-
 	constructor() {
 		super();
 		this.onBreakpoint = this.onBreakpoint.bind(this);
 	}
 
 	onBreakpoint(broken) {
-		console.log(broken)
+		if (broken) {
+			this.props.changeOpenKeys([]);
+		} else {
+			const { pathname } = window.location;
+			menuList.forEach((value, key) => {
+				if (value.type === 'SubMenu') {
+					value.childList.forEach(childValue => {
+						if (childValue.url === pathname) {
+							this.props.changeOpenKeys([value.title]);
+						}
+					});
+				}
+			});
+		}
 		this.props.changeCollapsed(!broken);
 	}
 
@@ -63,6 +79,9 @@ const mapDispatchToProps = dispatch => {
 	return {
 		changeCollapsed: status => {
 			dispatch(changeCollapsedAction(!status));
+		},
+		changeOpenKeys: data => {
+			dispatch(changeOpenKeys(data));
 		}
 	};
 };
