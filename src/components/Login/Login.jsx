@@ -9,108 +9,108 @@ import * as sessionActions from './store/actionCreator';
 import './Login.css';
 
 class Login extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			credentials: {
-				name: '',
-				password: ''
-			}
-			// logining: false,
-			// error: null
-		};
-		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            credentials: {
+                name: '',
+                password: ''
+            }
+            // logining: false,
+            // error: null
+        };
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
 
-	componentDidMount() {
-		this.props.logout();
-	}
+    componentDidMount() {
+        this.props.logout();
+    }
 
-	onChange = event => {
-		const field = event.target.name;
-		const { credentials } = this.state;
-		credentials[field] = event.target.value;
+    onChange = event => {
+        const field = event.target.name;
+        const { credentials } = this.state;
+        credentials[field] = event.target.value;
 
-		this.setState({ credentials });
-	};
+        this.setState({ credentials });
+    };
 
-	onSubmit = event => {
-		event.preventDefault();
-		this.props.onLogin(this.state.credentials);
-	};
+    onSubmit = event => {
+        event.preventDefault();
+        this.props.onLogin(this.state.credentials);
+    };
 
-	render() {
-		return sessionService.isAuthenticated() ? (
-			<Redirect to="/" from="/login" />
-		) : (
-			<div className="login-form-box">
-				<Form className="login-form" onSubmit={this.onSubmit}>
-					<h1>Login Form</h1>
-					<Form.Item>
-						<Input
-							size="large"
-							prefix={
-								<Icon
-									type="user"
-									style={{ color: 'rgba(0,0,0,.25)' }}
-								/>
-							}
-							placeholder="Admin user name"
-							name="name"
-							value={this.state.credentials.name}
-							onChange={this.onChange}
-						/>
-					</Form.Item>
-					<Form.Item>
-						<Input
-							size="large"
-							prefix={
-								<Icon
-									type="lock"
-									style={{ color: 'rgba(0,0,0,.25)' }}
-								/>
-							}
-							type="password"
-							placeholder="password here"
-							name="password"
-							value={this.state.credentials.password}
-							onChange={this.onChange}
-						/>
-					</Form.Item>
-					<Form.Item>
-						<Button
-							type="primary"
-							size="large"
-							htmlType="submit"
-							className="login-form-submit"
-							loading={this.props.logining}
-						>
-							登录
-						</Button>
-					</Form.Item>
-					<p className="copyright">&copy;2018 copyright here</p>
-				</Form>
-			</div>
-		);
-	}
+    render() {
+        return sessionService.isAuthenticated() ? (
+            <Redirect to="/" from="/login" />
+        ) : (
+            <div className="login-form-box">
+                <Form className="login-form" onSubmit={this.onSubmit}>
+                    <h1>Login Form</h1>
+                    <Form.Item>
+                        <Input
+                            size="large"
+                            prefix={
+                                <Icon
+                                    type="user"
+                                    style={{ color: 'rgba(0,0,0,.25)' }}
+                                />
+                            }
+                            placeholder="Admin user name"
+                            name="name"
+                            value={this.state.credentials.name}
+                            onChange={this.onChange}
+                        />
+                    </Form.Item>
+                    <Form.Item>
+                        <Input
+                            size="large"
+                            prefix={
+                                <Icon
+                                    type="lock"
+                                    style={{ color: 'rgba(0,0,0,.25)' }}
+                                />
+                            }
+                            type="password"
+                            placeholder="password here"
+                            name="password"
+                            value={this.state.credentials.password}
+                            onChange={this.onChange}
+                        />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button
+                            type="primary"
+                            size="large"
+                            htmlType="submit"
+                            className="login-form-submit"
+                            loading={this.props.logining}
+                        >
+                            登录
+                        </Button>
+                    </Form.Item>
+                    <p className="copyright">&copy;2018 copyright here</p>
+                </Form>
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = state => {
-	return {
-		logining: state.session.logining,
-		error: state.session.error
-	};
+    return {
+        logining: state.session.logining,
+        error: state.session.error
+    };
 };
 
 const mapDispatchToProps = dispatch => {
-	return {
-		onLogin: credentials => dispatch(sessionActions.login(credentials)),
-		logout: () => dispatch(sessionActions.logout())
-	};
+    return {
+        onLogin: credentials => dispatch(sessionActions.login(credentials)),
+        logout: () => dispatch(sessionActions.logout())
+    };
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Login);

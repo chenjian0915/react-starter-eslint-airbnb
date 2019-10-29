@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Switch, Redirect } from 'react-router-dom';
+import { withRouter, Switch } from 'react-router-dom';
 // Home
 import Home from '../Home';
 // 资源管理
@@ -27,84 +27,84 @@ import AgentManagement from '../AgentManagement/Agent';
 import PrivateLayout from '../Layouts/PrivateLayout';
 
 class ContentMain extends React.Component {
-	render() {
-		return (
-			<div style={{ padding: 16, position: 'relative' }}>
-				<Switch>
-					<PrivateLayout exact path="/" component={Home} />
-					<PrivateLayout
-						exact
-						path="/books"
-						component={BooksManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/words"
-						component={WordsManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/version"
-						component={VersionManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/class"
-						component={ClassManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/organization"
-						component={OrganizationManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/students"
-						component={StudentsManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/teachers"
-						component={TeachersManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/admin"
-						component={AdminManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/app-version"
-						component={AppVersionManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/areas"
-						component={AreasManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/log"
-						component={LogManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/modify-password"
-						component={ModifyPassword}
-					/>
-					<PrivateLayout
-						exact
-						path="/permission"
-						component={PermissionManagement}
-					/>
-					<PrivateLayout
-						exact
-						path="/agent"
-						component={AgentManagement}
-					/>
-				</Switch>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div style={{ padding: 16, position: 'relative' }}>
+                <Switch>
+                    <PrivateLayout exact path="/" component={Home} />
+                    <PrivateLayout
+                        exact
+                        path="/books"
+                        component={BooksManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/words"
+                        component={WordsManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/version"
+                        component={VersionManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/class"
+                        component={ClassManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/organization"
+                        component={OrganizationManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/students"
+                        component={StudentsManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/teachers"
+                        component={TeachersManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/admin"
+                        component={AdminManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/app-version"
+                        component={AppVersionManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/areas"
+                        component={AreasManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/log"
+                        component={LogManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/modify-password"
+                        component={ModifyPassword}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/permission"
+                        component={PermissionManagement}
+                    />
+                    <PrivateLayout
+                        exact
+                        path="/agent"
+                        component={AgentManagement}
+                    />
+                </Switch>
+            </div>
+        );
+    }
 }
 export default withRouter(ContentMain);

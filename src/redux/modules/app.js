@@ -1,4 +1,4 @@
 const reducer = (state = {}) => {
-	return state;
+    return state;
 };
 export default reducer;

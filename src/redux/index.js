@@ -11,8 +11,8 @@ import sessionReducer from '../components/Login/store';
 
 // 合并reducer
 const rootReducer = combineReducers({
-	common,
-	session: sessionReducer
+    common,
+    session: sessionReducer
 });
 
 export default rootReducer;
