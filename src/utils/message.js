@@ -1,10 +1,3 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-19 10:32:28
- * @LastEditTime: 2019-08-19 10:49:47
- * @LastEditors: Please set LastEditors
- */
 import { message } from 'antd';
 
 // import moment from 'moment';

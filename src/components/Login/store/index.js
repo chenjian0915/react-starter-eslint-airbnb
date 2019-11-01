@@ -20,34 +20,34 @@ const initialState = {
 const index = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
-        return {
-            ...state,
+            return {
+                ...state,
                 logining: true
-        };
+            };
         case LOGIN_SUCCESS:
             return {
-            partnerUser: {
-                id: action.userData.id,
+                partnerUser: {
+                    id: action.userData.id,
                     name: action.userData.name,
                     token: action.userData.token
-            },
+                },
                 logining: false,
-            error: null
-        };
+                error: null
+            };
         case LOGIN_FAILURE:
             return {
                 adminUser: null,
                 logining: false,
                 error: action.error
             };
-    case LOGOUT:
-        return {
-            adminUser: null,
-            logining: false,
+        case LOGOUT:
+            return {
+                adminUser: null,
+                logining: false,
                 error: null
             };
         default:
-        return state;
+            return state;
     }
 };
 
