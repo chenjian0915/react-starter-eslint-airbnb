@@ -50,6 +50,7 @@ class IndexRoute extends Component {
                     style={{
                         height: '100vh'
                     }}
+                    trigger={null}
                     breakpoint="lg"
                     onBreakpoint={this.onBreakpoint}
                     width={256}
